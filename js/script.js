@@ -12,6 +12,8 @@ $(document).ready(function(){
       scaleBannerVideoSize('.video-container video');
   });
 
+  toggleNavDropdown();
+
 });
 
 
@@ -60,3 +62,33 @@ function scaleBannerVideoSize(element){
 
     });
 }
+
+function toggleNavDropdown(){
+
+   $(".menu-2lines").click(function(){
+     toggleDropdown()
+   });
+
+   $("#menu-dropdown>ul>li>a").click(function(){
+     toggleDropdown()
+   });
+
+}
+
+function toggleDropdown(){
+  $(".flex-nav").toggleClass("fixToggleNav");
+  var isShownClass = $("#menu-dropdown").attr("class");
+  console.log(isShownClass);
+  $("#menu-dropdown").removeClass(isShownClass);
+
+  if (isShownClass == "hideFromSide"){
+    $("#menu-dropdown").addClass("showFromSide");
+  }else if (isShownClass == "showFromSide"){
+    $("#menu-dropdown").addClass("hideFromSide");
+  }
+
+  $(".toggleNav .bar1").toggleClass("bar1-transform");
+  $(".toggleNav .bar2").toggleClass("bar2-transform");
+  $(".toggleNav .bar3").toggleClass("bar3-transform");
+
+};
